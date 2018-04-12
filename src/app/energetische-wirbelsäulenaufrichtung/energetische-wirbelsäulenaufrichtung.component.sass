@@ -1,0 +1,26 @@
+@import "../shared/sass/common-mixins";
+@import "../shared/sass/animations";
+
+#wrapper
+    +wrapper();
+    animation: fade-in 1s ease-out;
+    position: relative;
+
+    p, h1
+        color: $color-wirbelsaeulenaufrichtung-main;
+
+    p
+        font-size: $font-size-normal;
+
+    h1
+        font-size: $font-size-normal;
+        @media screen and (min-width: $tablet-min)
+            font-size: $font-size-greater;
+        @media screen and (min-width: $desktop-min)
+            font-size: $font-size-greatest;
+
+    img
+        display: block;
+        margin: 20px auto;
+        max-width: 448px;
+        width: 100%;

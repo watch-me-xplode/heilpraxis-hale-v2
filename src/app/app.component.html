@@ -1,21 +1,78 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div id="app-wrapper">
 
-<router-outlet></router-outlet>
+    <!-- swiper -->
+    <app-swiper (navigate)="navigateTo($event)"></app-swiper>
+
+    <!-- navi -->
+    <p class="dynamic-accentcolor" id="navi-header" (click)="toggleAppNavi()">{{pageTitle}}
+        <i class="fa fa-bars" id="navi-open-icon" aria-hidden="true"></i>
+        <i class="fa fa-times-circle opaque" id="navi-close-icon" aria-hidden="true"></i>
+    </p>
+    <ul class="navi" id="navi-app">
+        <a routerLink="/" routerLinkActive="active" class="navi-element dynamic-maincolor" id="home" (click)="toggleAppNavi(); updatePageDependencies('Heilpraxis Daniela Hale')">
+            <li>Home</li>
+        </a>
+        <a routerLink="/innerwise" routerLinkActive="active" class="navi-element dynamic-maincolor" id="innerwise" (click)="toggleAppNavi(); updatePageDependencies('innerwise®')">
+            <li>innerwise®</li>
+        </a>
+        <a routerLink="/psychosomatische_energetik" routerLinkActive="active" class="navi-element dynamic-maincolor" id="pse" (click)="toggleAppNavi(); updatePageDependencies('PSE (Psychosomatische Energetik)')">
+            <li>PSE Psychosomatische Energetik</li>
+        </a>
+        <a routerLink="/gesprächspsychotherapie" routerLinkActive="active" class="navi-element dynamic-maincolor" id="gwg" (click)="toggleAppNavi(); updatePageDependencies('Gesprächspsychotherapie')">
+            <li>Gesprächspsychotherapie GWG</li>
+        </a>
+        <a routerLink="/ohr-und-körperkerzentherapie" routerLinkActive="active" class="navi-element dynamic-maincolor" id="oukk" (click)="toggleAppNavi(); updatePageDependencies('Ohr- und Körperkerzentherapie')">
+            <li>Ohr- Körperkerzentherapie</li>
+        </a>
+        <a routerLink="/persönlichkeitstraining" routerLinkActive="active" class="navi-element dynamic-maincolor" id="pt" (click)="toggleAppNavi(); updatePageDependencies('PT Persönlichkeitstraining')">
+            <li>PT Persönlichkeitstraining</li>
+        </a>
+        <a routerLink="/energetische_wirbelsäulenaufrichtung" routerLinkActive="active" class="navi-element dynamic-maincolor" id="ew" (click)="toggleAppNavi(); updatePageDependencies('Energetische Wirbelsäulenaufrichtung')">
+            <li>Energetische Wirbelsäulenaufrichtung</li>
+        </a>
+        <a routerLink="/vibrationstraining" routerLinkActive="active" class="navi-element dynamic-maincolor" id="vib" (click)="toggleAppNavi(); updatePageDependencies('Vibrationstraining')">
+            <li>Vibrationstraining</li>
+        </a>
+        <a routerLink="/kosten" routerLinkActive="active" class="navi-element dynamic-maincolor" id="kosten" (click)="toggleAppNavi(); updatePageDependencies('Kosten und Gebühren')">
+            <li>Kosten/Gebühren</li>
+        </a>
+        <a routerLink="/kontakt" routerLinkActive="active" class="navi-element dynamic-maincolor" id="kontakt" (click)="toggleAppNavi(); updatePageDependencies('Kontakt')">
+            <li>Kontakt</li>
+        </a>
+        <a routerLink="/gästebuch" routerLinkActive="active" class="navi-element dynamic-maincolor" id="gb" (click)="toggleAppNavi(); updatePageDependencies('Gästebuch')">
+            <li>Gästebuch</li>
+        </a>
+        <a routerLink="/aktuelles" routerLinkActive="active" class="navi-element dynamic-maincolor" id="aktuell" (click)="toggleAppNavi(); updatePageDependencies('Aktuelles')">
+            <li>Aktuelles</li>
+        </a>
+        <a routerLink="/links" routerLinkActive="active" class="navi-element dynamic-maincolor" id="links" (click)="toggleAppNavi(); updatePageDependencies('Links')">
+            <li>Links</li>
+        </a>
+    </ul>
+
+    <!-- content -->
+    <div id="router-outlet">
+        <router-outlet></router-outlet>
+    </div>
+
+    <!-- quick links -->
+    <div id="quicklink-container">
+        <a href="mailto:{{getMyEmail()}}" class="dynamic-accentcolor">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        </a>
+        <a href="tel:+4987034134819" class="dynamic-accentcolor">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+        </a>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <a href="mailto:{{getMyEmail()}}" class="dynamic-maincolor">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i> {{getMyEmail()}}
+        </a>
+        <a routerLink="/impressum" routerLinkActive="active" class="dynamic-maincolor" id="impressum" (click)="updatePageDependencies('Impressum')">
+            <i class="fa fa-file-text-o" aria-hidden="true"></i> Impressum
+        </a>
+    </footer>
+
+</div>
